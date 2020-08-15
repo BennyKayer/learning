@@ -1,0 +1,5 @@
+cron:
+- description: "Get updated datasets"
+  url: /tasks/update_dataset
+  schedule: every 8928 hours
+  target: projekt

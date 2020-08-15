@@ -1,0 +1,6 @@
+queue:
+    - name: q1
+      rate: 120/m
+      bucket_size: 24
+      retry_parameters:
+        task_age_limit: 3d
