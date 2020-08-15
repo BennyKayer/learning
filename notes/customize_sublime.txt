@@ -1,0 +1,5 @@
+Babel
+SidebarEnhancements
+A File Icon
+GitGutter
+BracketHighlighter
