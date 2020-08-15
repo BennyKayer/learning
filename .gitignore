@@ -1,2 +1,6 @@
-.vscode/
-node_modules/
+/13ajax-jquery/node_modules
+/09node/node_modules
+/15socket-io/node_modules
+/learn-socket-io/net-ninja/node_modules
+/learn-socket-io/official/node_modules
+/learn-socket-io/web-dev-simp/node_modules

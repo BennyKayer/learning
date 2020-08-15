@@ -1,0 +1,57 @@
+@background-color:#638fb8;
+@font-family: Courier;
+
+@secondary-color: #20b2aa;
+@line-height: 1em + 1em;
+
+body {
+    font-family: @font-family;
+    background-color: @background-color;
+    line-height: @line-height;
+}
+
+
+
+.btn {
+    padding: 10px 15px;
+    border: 0;
+}
+
+h1 {
+    .bordered
+}
+.bordered{
+    border-top: dotted 1px black;
+    border-bottom: solid 2px black;
+}
+
+.border-radius(@radius) {
+    border-radius: @radius;
+}
+
+ul#menu {
+    list-style: none;
+    background-color: darken(@secondary-color, 20%);
+    li {
+        padding: 5px;
+        a {
+            text-decoration: none;
+            color:white;
+            &:hover {
+                color: red;
+            }
+        }
+    }
+}
+
+@primary-color:#080000;
+.primary-btn:extend(.btn){
+    background-color: @primary-color;
+    .text-color(@primary-color);
+}
+.text-color(@a) when (lightness(@a) >= 50%) {
+    color: black;
+}
+.text-color(@a) when (lightness(@a) < 50%) {
+    color: white;
+}

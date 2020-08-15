@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    font-weight: 500;
+}
+h1{
+    font-size: 2rem;
+    font-weight: 700;
+}
+h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+article > h2 {
+    background-color: lightgray;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+time {
+    margin-right: 5px;
+    opacity: 0.2;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+img {
+    float: left;
+    margin-right: 2%;
+    margin-bottom: 2%;
+}
+img::after {
+    clear: both;
+}
+article:nth-of-type(2) > p:nth-of-type(3) {
+    clear: both;
+}
+
