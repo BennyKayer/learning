@@ -4,10 +4,16 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
-import { searchRobots as rootReducer } from "./reducers";
+import { createStore, applyMiddleware, combineReducers } from "redux";
+import { searchRobots, requestRobots } from "./reducers";
 
-const store = createStore(rootReducer);
+// redux-thunk
+import thunkMiddleware from "redux-thunk";
+
+const rootReducer = combineReducers({ searchRobots, requestRobots });
+
+// redux-thunk searches for actions that return a function instead of an object
+const store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
 
 ReactDOM.render(
     <Provider store={store}>
