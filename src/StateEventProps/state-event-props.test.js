@@ -3,6 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { render, screen, fireEvent } from "@testing-library/react";
 
 import StateEventProps from "./state-event-props.component";
+import { Search } from "./state-event-props.component";
 
 describe("StateEventProps", () => {
     test("renders without error", async () => {
@@ -58,5 +59,36 @@ describe("StateEventProps", () => {
         await userEvent.type(screen.getByRole("textbox"), "JavaScript");
 
         expect(screen.getByText(/Searches for JavaScript/)).toBeInTheDocument();
+    });
+});
+
+describe("Search", () => {
+    test("calls the onChange callback handler - fireEvent", () => {
+        const onChange = jest.fn();
+
+        render(
+            <Search value="" onChange={onChange}>
+                {"Search:"}
+            </Search>,
+        );
+
+        fireEvent.change(screen.getByRole("textbox"), {
+            target: { value: "JavaScript" },
+        });
+
+        expect(onChange).toHaveBeenCalledTimes(1);
+    });
+    test("call the onChange callback handler - userEvent", async () => {
+        const onChange = jest.fn();
+
+        render(
+            <Search value="" onChange={onChange}>
+                {"Search:"}
+            </Search>,
+        );
+
+        await userEvent.type(screen.getByRole("textbox"), "JavaScript");
+
+        expect(onChange).toHaveBeenCalledTimes(10);
     });
 });
