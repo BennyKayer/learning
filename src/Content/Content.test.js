@@ -7,6 +7,6 @@ describe("Content", () => {
     test("renders without error", () => {
         render(<Content />);
 
-        screen.debug();
+        // screen.debug();
     });
 });
