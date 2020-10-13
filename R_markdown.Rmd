@@ -1,0 +1,97 @@
+---
+title: "R_markdown"
+author: "Paweł Benkowski"
+date: "13 10 2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+print('hello code chunk')
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+<!-- Comment out with ctrl+shift+c -->
+```{r}
+my_string <- "no multiline comments"
+x <- 1
+y <- 2
+69 -> wtf
+xd = 29
+z = x + y
+# alt + - for arrow <- 
+```
+
+R objects
+- Vectors
+- Lists
+- Matrices
+- Arrays
+- Factors
+- Data Frames
+
+```{r}
+logicaL = TRUE
+print(class(logicaL))
+
+numeriC = 23.5
+numeric2 = 349
+
+inte <- 2L
+compLEX = 2 + 5i
+
+print(charToRaw('Wtf is R'))
+
+fruits = c('orange', 'apple', 'banana')
+print(class(fruits))
+
+lst = list(c(2,5,3), 21, sin, TRUE)
+print(lst)
+
+M = matrix(c('a','b', 'c', 'd','e','f'), nrow = 2, ncol = 3, byrow = TRUE)
+print(M)
+
+a = array(c('green', 'yellow'), dim = c(3,3,2))
+print(a)
+
+apple_colours = c('green', 'yellow', 'red', 'yellow', 'green', 'green')
+factor_apple = factor(apple_colours)
+
+print(apple_colours)
+print(factor_apple)
+print(nlevels(factor_apple))
+
+BMI = data.frame(
+  gender = c("Male", "Male", "Female"),
+  height = c("168", "179", "150"),
+  weight = c(89, 92, 52),
+  age = c(23, 25, 16)
+)
+print(BMI)
+```
+```{r}
+# Get data into R
+install.packages('tidyverse')
+library(tidyverse)
+# Clean data and
+
+```
