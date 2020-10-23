@@ -81,17 +81,10 @@ print(factor_apple)
 print(nlevels(factor_apple))
 
 BMI = data.frame(
-  gender = c("Male", "Male", "Female"),
+  gender = factor(c("Male", "Male", "Female")),
   height = c("168", "179", "150"),
   weight = c(89, 92, 52),
   age = c(23, 25, 16)
 )
 print(BMI)
-```
-```{r}
-# Get data into R
-install.packages('tidyverse')
-library(tidyverse)
-# Clean data and
-
 ```
