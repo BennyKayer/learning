@@ -58,6 +58,7 @@ quantile(dane, 0.25, type=6)
 ```
 Zadanie 7
 ```{r}
+#Nie ma sensu robic tu tego, wszystko R ulatwia
 
 
 ```
