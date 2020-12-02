@@ -2,7 +2,8 @@
 # Metody wygładzania danych) Dla danych z poprzedniego zadania zastosuj wygładzanie
 # danych metoda
 
-dane = c(656.8, 654.53, 611.27, 657.91, 695.72, 768.26, 699.79, 843.47)
+#dane = c(656.8, 654.53, 611.27, 657.91, 695.72, 768.26, 699.79, 843.47)
+dane = c(48.3, 51.4, 58.5, 55.3, 62.4, 63.1, 62.0, 67.2)
 
 # PODPUNKT 1
 # sredniej ruchomej 3-okresowej
@@ -60,7 +61,7 @@ Srednia_ruch = c(NA, Srednia(dane, 3), NA)
 Mediana_ruch = c(NA, Mediana(dane, 3), NA)
 Kroczace_min = c(NA, Minimum(dane, 3), NA)
 Kroczace_max = c(NA, Maximum(dane, 3), NA)
-
+print(Kroczace_max)
 # n - bez pkt i lini
 plot(dane, type='n', xlab="Rok", ylab="Wydatki", main="Przecietne wynagrodzenie", axes=FALSE)
 # 1 - x w prawo, 2 - y w góre, 3 - x w lewo, 4 - y w dól

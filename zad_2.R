@@ -2,7 +2,8 @@
 # (Miary pozycyjne) Obliczono wielkosci wynagrodzenia (w tys. zł.) w pewnej grupie
 # pracowników i otrzymano nastepujace wyniki
 
-dane = c(3.84, 7.07, 6.86, 5.38, 4.41, 6.61, 6.39, 7.62, 3.4, 5.18, 3.6, 7.02)
+#dane = c(3.84, 7.07, 6.86, 5.38, 4.41, 6.61, 6.39, 7.62, 3.4, 5.18, 3.6, 7.02)
+dane = c(40,42,22,16,47,33,38,20,31,29,42,30)
 
 # PODPUNKT 1
 # Narysuj histogram liczebnosci o jednostkowej długosci przedziałów klasowych dla tych danych.

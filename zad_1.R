@@ -2,7 +2,8 @@
 # (Miary klasyczne) Obliczono wielkosci dochodu w pieciu małych firmach oznaczonych
 # literami A, B, C, D, E i otrzymano nastepujace wyniki (w tys. zł.):
 
-x = c(1.71, 2.98, 3.4, 2.17, 1.42)
+#x = c(1.71, 2.98, 3.4, 2.17, 1.42)
+x = c(98,55,31,49,80)
 
 # PODPUNKT 1
 # Przedstaw otrzymane dane w postaci wykresu punktowego w układzie współrzednych.
