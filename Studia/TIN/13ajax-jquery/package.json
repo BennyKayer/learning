@@ -1,0 +1,27 @@
+{
+  "name": "bookstore",
+  "version": "0.1.0",
+  "description": "Księgarnia Żurek",
+  "main": "serwer.js",
+  "scripts": {
+    "start": "nodemon serwer.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.10.1",
+    "ejs": "^2.5.5",
+    "express": "^4.11.0",
+    "express-session": "^1.11.3",
+    "jquery": "^3.3.1",
+    "morgan": "^1.5.1",
+    "nodemon": "^2.0.2",
+    "serve-favicon": "^2.2.0",
+    "taffy": "^2.6.2"
+  },
+  "devDependencies": {
+    "grunt": "0.4.5",
+    "grunt-contrib-compress": "0.5.2",
+    "grunt-contrib-rename": "^0.2.0"
+  }
+}

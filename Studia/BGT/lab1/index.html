@@ -1,0 +1,36 @@
+<html>
+
+    <head>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+
+        <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyAWtmVM-oqc5lwn8C90LaGghxcD0TnndAc",
+            authDomain: "laboratorium-1-s16569.firebaseapp.com",
+            databaseURL: "https://laboratorium-1-s16569.firebaseio.com",
+            projectId: "laboratorium-1-s16569",
+            storageBucket: "laboratorium-1-s16569.appspot.com",
+            messagingSenderId: "561695195330",
+            appId: "1:561695195330:web:7b771f0233f6d62d337b5b"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        </script>
+    </head>
+
+    <body>
+        <button type="button" id="login">Login With Google</button>
+        <script>
+            var el = document.querySelector("#login");
+            el.addEventListener("click", function() {
+                firebase.auth().signInWithGoogle().catch(function (error) {conosle.log(error)});
+            })
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,57 @@
+body {
+    background: rgb(155, 117, 48);
+    padding-left: 10vw;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+nav {
+    position: fixed;
+    background: rgb(77, 77, 153);
+    top: 0%;
+    left: 0%;
+    width: 10vw;
+    height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color:white;
+}
+
+#books {
+    list-style: upper-roman;
+}
+
+.autor {
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+.tytul {
+    font-style: italic;
+}
+
+footer {
+    border-top: solid black 5px;
+}
+
+@media print {
+    nav {
+        display: none;
+    }
+    footer {
+        display: none;
+    }
+    a {
+        display: none;
+    }
+}
+#edu {
+    padding-left: 0;
+}
+#edu > li {
+    display: none;
+}
+
+#edu:hover > li {
+    display: block;
+}

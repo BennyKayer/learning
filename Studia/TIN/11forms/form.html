@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dane osobowe</title>
+        <meta charset="utf-8" />
+        <script>
+            "use strict";
+            function peselDecode(pesel) {
+                var year = parseInt(pesel.substring(0, 2), 10);
+                var month = parseInt(pesel.substring(2, 4), 10) - 1;
+                var day = parseInt(pesel.substring(4, 6), 10);
+
+                if (month > 80) {
+                    year += 1800;
+                    month -= 80;
+                } else if (month > 60) {
+                    year += 2200;
+                    month -= 60;
+                } else if (month > 40) {
+                    year += 2100;
+                    month -= 40;
+                } else if (month > 20) {
+                    year += 2000;
+                    month -= 20;
+                } else {
+                    year += 1900;
+                }
+
+                var born = `${year}-${
+                    month > 9 ? month : `0${month + 1}`
+                }-${day}`;
+
+                var weights = [9, 7, 3, 1, 9, 7, 3, 1, 9, 7];
+                let sum = 0;
+
+                for (let i = 0; i < weights.length; i++) {
+                    sum += parseInt(pesel.substring(i, i + 1), 10) * weights[i];
+                }
+
+                sum %= 10;
+                var valid = sum === parseInt(pesel.substring(10, 11), 10);
+
+                var gender =
+                    parseInt(pesel.substring(9, 10), 10) % 2 === 1 ? "M" : "K";
+
+                return { valid: valid, gender: gender, born: born };
+            }
+            function checkPesel(peselInfo) {
+                var txt = peselInfo.valid
+                    ? "Pesel Poprawny"
+                    : "Pesel niepoprawny";
+                alert(txt);
+                var fill = document.getElementById("fill");
+                peselInfo.valid
+                    ? (fill.disabled = false)
+                    : (fill.disabled = true);
+                return false;
+            }
+            function fillForm(peselInfo) {
+                var gender = peselInfo.gender;
+                var born = peselInfo.born;
+
+                var genderM = document.getElementById("M");
+                var genderK = document.getElementById("K");
+
+                gender === "M"
+                    ? (genderM.checked = "checked")
+                    : (genderK.checked = "checked");
+
+                var bornField = document.getElementById("birthDateField");
+                bornField.value = born;
+                return false;
+            }
+            function checkWithPesel(peselInfo) {
+                var formBorn = document.getElementById("birthDateField");
+                var formGender = document.querySelector(
+                    'input[name="gender"]:checked'
+                ).value;
+
+                // console.log(formBorn.value);
+                // console.log(formGender);
+                // console.log(peselInfo.born);
+                // console.log(peselInfo.gender);
+                // console.log(formBorn.value === peselInfo.born);
+                // console.log(formGender === peselInfo.gender);
+                var bornMsg =
+                    formBorn.value === peselInfo.born
+                        ? "Data urodzenia zgadza się z peselem"
+                        : "Data urodzenia NIE zgadza sie z peselem";
+                var genderMsg =
+                    formGender === peselInfo.gender
+                        ? "Płeć zgadza się z peselem"
+                        : "Płeć NIE zgadza sie z peselem";
+
+                alert(`${bornMsg}\n${genderMsg}`);
+                return false;
+            }
+            function show(form) {
+                const fromPesel = peselDecode(form.pesel.value);
+                alert(
+                    `Imię: ${form.firstName.value}\nNazwisko: ${
+                        form.lastName.value
+                    }\nPłeć: ${form.gender.value}\nPESEL: ${
+                        form.pesel.value
+                    }\nData Urodzenia: ${
+                        form.birthDate.value
+                    }\nTajny Pseudonim: ${
+                        form.pseudo.value ? form.pseudo.value : "nie podano"
+                    }\nUlubiony Kolor: ${form.favColor.value}`
+                );
+                return false;
+            }
+        </script>
+    </head>
+    <body>
+        <form onsubmit="show(this)">
+            <div>
+                <label for="firstNameField">Imię:</label>
+                <input
+                    type="text"
+                    name="firstName"
+                    id="firstNameField"
+                    required="required"
+                    placeholder="Wpisz swoje imię"
+                    autofocus="autofocus"
+                />
+            </div>
+
+            <div>
+                <label for="lastNameField">Nazwisko:</label>
+                <input
+                    type="text"
+                    name="lastName"
+                    id="lastNameField"
+                    required="required"
+                    placeholder="Wpisz swoje nazwisko"
+                />
+            </div>
+
+            <div>
+                <label for="gender">Mężczyzna:</label>
+                <input type="radio" name="gender" value="M" required id="M" />
+                <label for="gender">Kobieta:</label>
+                <input type="radio" name="gender" value="K" required id="K" />
+            </div>
+
+            <div>
+                <label for="peselField">PESEL:</label>
+                <input
+                    type="text"
+                    name="pesel"
+                    id="peselField"
+                    required="required"
+                    placeholder="Wpisz swój pesel"
+                />
+                <button
+                    onclick="checkPesel(peselDecode(document.getElementById('peselField').value))"
+                >
+                    Sprawdź Pesel
+                </button>
+                <button
+                    onclick="fillForm(peselDecode(document.getElementById('peselField').value))"
+                    id="fill"
+                    disabled
+                >
+                    Uzupełnij Formularz informacjami z Pesela
+                </button>
+            </div>
+
+            <div>
+                <label for="birthDateField">Data Urodzenia:</label>
+                <input
+                    type="date"
+                    name="birthDate"
+                    id="birthDateField"
+                    required="required"
+                />
+            </div>
+
+            <div>
+                <label for="pseudo">Tajny Pseudonim:</label>
+                <input
+                    type="password"
+                    name="pseudo"
+                    id="pseudo"
+                    placeholder="Wpisz tajny pseudonim"
+                />
+            </div>
+
+            <div>
+                <label for="favColor">Ulubiony Kolor:</label>
+                <input type="color" name="favColor" id="favColor" />
+            </div>
+
+            <input type="reset" />
+            <input type="submit" />
+        </form>
+        <button
+            id="verifyWithPesel"
+            onclick="checkWithPesel(peselDecode(document.getElementById('peselField').value))"
+        >
+            Zweryfikuj date urodzenia i płeć z peselem
+        </button>
+    </body>
+</html>

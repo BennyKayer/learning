@@ -1,0 +1,4 @@
+Solution value: 34 
+[Item(5,11)][Item(0,4)][Item(7,19)]
+ Time: 0.007999897003173828
+ Method: genetic_algorithm

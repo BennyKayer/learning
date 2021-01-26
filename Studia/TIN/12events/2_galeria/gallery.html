@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Galeria</title>
+        <script src="./gallery.js"></script>
+        <style>
+            #largeImg {
+                border: solid 1px #ccc;
+                width: 615px;
+                height: 400px;
+                padding: 10px;
+            }
+
+            #thumbs a img {
+                border: solid 1px #ccc;
+                width: 200px;
+                height: 115px;
+                padding: 3px;
+                margin: 2px;
+                float: left;
+            }
+
+            #thumbs a:hover {
+                border-color: #ff9900;
+            }
+
+            #thumbs li {
+                list-style: none;
+            }
+
+            #thumbs {
+                margin: 0;
+                padding: 0;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>Galeria prac studenckich</h1>
+
+        <p>
+            <img
+                id="largeImg"
+                src="./img/sigras.jpg"
+                alt="Large image"
+                title="Szymon Igras"
+            />
+        </p>
+        <ul id="thumbs">
+            <li>
+                <a href="./img/sigras.jpg" title="Szymon Igras"
+                    ><img src="./img/_sigras.jpg"
+                /></a>
+            </li>
+            <li>
+                <a
+                    href="http://wmii.uwm.edu.pl/~denisjuk/uwm/3d/gallery/jostrowska.jpg"
+                    title="Joanna Ostrowska"
+                    ><img src="./img/_jostrowska.jpg"
+                /></a>
+            </li>
+            <li>
+                <a
+                    href="http://wmii.uwm.edu.pl/~denisjuk/uwm/3d/gallery/pmajewski.jpg"
+                    title="Paweł Majewski"
+                    ><img src="./img/_pmajewski.jpg"
+                /></a>
+            </li>
+        </ul>
+    </body>
+</html>
