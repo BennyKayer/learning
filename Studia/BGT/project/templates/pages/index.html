@@ -1,0 +1,47 @@
+{%  extends 'base.html' %}
+{% block content %}
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Global Happiness Survey</h1>
+    <p class="lead">Collecting and processing countries' lives quality info since 2013</p>
+  </div>
+</div>
+
+<div class="center-nicely">
+    <div class="card">
+        <img class="card-img-top" src="https://voxukraine.org/wp-content/uploads/2016/08/MORTALITY-2.jpg" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Mortality Impact</h5>
+            <p class="card-text">See how high infant mortalties negatively corelate with the country's happiness. Counterintuitevely so does the birth rate...</p>
+            <a href="/mortality" class="btn btn-primary">See the analysis</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img class="card-img-top" src="https://krytykapolityczna.pl/file/2016/05/businessman-2245098_1920-1024x576.jpg" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">GDP per capita Impact</h5>
+            <p class="card-text">See which countries lead the world in terms of GDP. Also see how the numbers impact the happiness ranking and that more is not always better ...</p>
+            <a href="/gdp_per_capita" class="btn btn-primary">See the analysis</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img class="card-img-top" src="https://miro.medium.com/max/629/1*rzNBRBt1RCr4NsN4Lb7V1Q.png" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">GDP sectors Impact</h5>
+            <p class="card-text">See how the sectors are useful when gauging the country happiness. Though you might've heard about their correlation to the country's development level already ...</p>
+            <a href="/sectors" class="btn btn-primary">See the analysis</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img class="card-img-top" src="https://teamquest.pl/img/static/blog/pexels-photo-1181373_1_.jpeg" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Your impact on the next survey!</h5>
+            <p class="card-text">The gathering of date for the year 2020 has started. Parteka in it, express your opinion, we are willing to hear it whether it's good or bad ... </p>
+            <a href="/submit" class="btn btn-success">Partake in the survey!</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
