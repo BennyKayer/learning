@@ -1,0 +1,179 @@
+@main-color: #f70828;
+@font-family: 'Times New Roman', Times, serif;
+@font-size: 16px;
+* {
+    margin: 0;
+    padding: 0;
+    font-family: @font-family;
+    font-size: @font-size;
+}
+.padded {
+    padding: 15px;
+}
+.bordered {
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+}
+.flexed-column {
+    display: flex;
+    flex-direction: column;
+}
+.bg-nav {
+    background-image: url('../bg_nav.png');
+    background-position: right;
+    background-size: cover;
+}
+.margined {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#container {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas: 
+    "header header header"
+    "nav nav nav"
+    "news main important"
+    "foot foot foot"
+    ;
+    header {
+        grid-area: header;
+        background-color: lighten(@main-color, 35%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .padded;
+    }
+    nav{
+        grid-area: nav;
+        ul{
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            .bg-nav;
+            li {
+                .padded;
+                .bg-nav;
+                .bordered;
+                &:hover {
+                    background-image: url('../bg_nav_h.png');
+                }
+                a {
+                    text-decoration: none;
+                    color: lighten(@main-color, 50%);
+                    font-size: @font-size * 1.1;
+                }
+            }
+        }
+    }
+    #left {
+        grid-area: news;
+        .flexed-column;
+        .padded;
+        background-color: lighten(@main-color, 42%);
+        h2 {
+            font-size: @font-size * 2;
+        }
+        h3 {
+            .margined;
+            a {
+                color: darken(@main-color, 50%);
+                font-size: @font-size * 1.16;   
+            }
+        }
+    }
+    #main {
+        grid-area: main;
+        .flexed-column;
+        .padded;
+        background-color: lighten(@main-color, 46%);
+        h1 {
+            font-size: @font-size * 2;
+        }
+        h2 {
+            font-size: @font-size * 1.6;
+        }
+        h3 {
+            font-size: @font-size * 1.2;
+        }
+        p{
+            .margined;
+        }
+    }
+    #important {
+        grid-area: important;
+        .flexed-column;
+        .padded;
+        background-color: lighten(@main-color, 36%);
+        h2 {
+            font-size: @font-size * 1.6;
+        }
+        ul {
+            list-style: none;
+            li {
+                background: url("../bullet.png") left center no-repeat;
+                text-align: left;
+                padding-left: image-width("../bullet.png") * 1.2;
+                .margined;
+                a {
+                    color: darken(@main-color, 50%);
+                    font-size: @font-size * 1.16;  
+                }
+            }
+        }
+    }
+    footer {
+        grid-area: foot;
+        .padded;
+        text-align: center;
+        background-color: lighten(@main-color, 28%);
+    }
+}
+@media only screen and (max-width: 800px) {
+    * {
+        font-size: @font-size * 0.95;
+    }
+    #container {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+        "header header"
+        "nav nav"
+        "main main"
+        "news important"
+        "foot foot"
+        ;
+        nav {
+            ul {
+                align-items: center;
+                justify-content: center;
+                li {
+                    height: 100%;
+                    width: 20%;
+                }
+            }
+        }
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    #container {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "header"
+        "nav"
+        "main"
+        "news"
+        "important"
+        "foot"
+        ;
+        nav {
+            ul {
+                flex-direction: column;
+                li {
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+        }
+    }
+  }

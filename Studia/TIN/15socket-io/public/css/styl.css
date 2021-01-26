@@ -1,0 +1,17 @@
+body {
+  background-color: #f7fff7;
+}
+
+form {
+  display: table;
+}
+
+form span {
+  display: table-row;
+}
+
+form span * {
+  display: table-cell;
+  vertical-align: middle;
+  margin:0px 0.5em;
+}

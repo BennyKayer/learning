@@ -1,0 +1,37 @@
+body {
+  font-family: Courier;
+  background-color: #638fb8;
+  line-height: 2em;
+}
+.btn,
+.primary-btn {
+  padding: 10px 15px;
+  border: 0;
+}
+h1 {
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
+}
+.bordered {
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
+}
+ul#menu {
+  list-style: none;
+  background-color: #105c57;
+}
+ul#menu li {
+  padding: 5px;
+}
+ul#menu li a {
+  text-decoration: none;
+  color: white;
+}
+ul#menu li a:hover {
+  color: red;
+}
+.primary-btn {
+  background-color: #080000;
+  color: white;
+}
+/*# sourceMappingURL=styles.css.map */
