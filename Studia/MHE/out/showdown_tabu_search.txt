@@ -1,0 +1,5 @@
+metoda rozmiar czas_sredni wynik_sredni 
+tabu_search 16 0.028919992446899415 47.84 
+tabu_search 23 0.05979999542236328 49.96 
+tabu_search 42 0.025439996719360352 63.84 
+tabu_search 100 0.07763999938964844 247.88 
