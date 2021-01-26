@@ -1,0 +1,35 @@
+body {
+    counter-reset: chapter; /* create a chapter counter scope */
+}
+h2::before {
+    content: "Rozdział " counter(chapter) ". ";
+    counter-increment: chapter; /* add 1 to chapter */
+}
+h2 {
+    counter-reset: subchapter; /* set section to 0 */
+}
+h3::before {
+    content: counter(chapter) "." counter(subchapter) ". ";
+    counter-increment: subchapter;
+}
+p.definition {
+    counter-reset: definition;
+}
+p.definition::before {
+    content: "Definicja " counter(chapter) '.' counter(definition) '. ';
+    counter-increment: definition;
+}
+p.theorem::before{
+    content: "Twierdzenie " counter(chapter) '.' counter(definition) ". ";
+    counter-increment: definition;
+}
+figcaption {
+    counter-reset: drawing;
+}
+figcaption::before {
+    content: "Rysunek " counter(drawing)'. ';
+    counter-increment: drawing;
+}
+mn {
+    vertical-align:super;
+}

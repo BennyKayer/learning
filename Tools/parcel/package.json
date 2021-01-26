@@ -1,0 +1,31 @@
+{
+  "name": "learning",
+  "version": "1.0.0",
+  "description": "All of the tutorials follow along and small projects used to test libraries etc.",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BennyKayer/Learning.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BennyKayer/Learning/issues"
+  },
+  "homepage": "https://github.com/BennyKayer/Learning#readme",
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "parcel-bundler": "^1.12.4"
+  }
+}

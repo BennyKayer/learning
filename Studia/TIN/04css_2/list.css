@@ -1,0 +1,22 @@
+div.icon{
+    background-image: url('./icons.png');
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    display: inline-block;
+}
+div.text {
+    display: inline;
+}
+li.open > div.icon {
+    background-position-y: 32px;
+}
+li.closed > div.icon {
+    background-position-y: 0px;
+}
+li.leaf > div.icon {
+    background-position-y: 16px;
+}
+ul {
+    list-style: none;
+}
