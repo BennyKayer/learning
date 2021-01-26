@@ -1,0 +1,43 @@
+nav > ul{
+    display:grid;
+    grid-template-columns: 1fr 3fr;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: lightgrey;
+    min-width: 700px;
+}
+.selected {
+    background-color: white;
+}
+li{
+    border: 2px black solid;
+    display: inline;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-size: 20px;
+    text-align: center;
+    padding: 2px;
+}
+.clickable {
+    text-decoration: underline;
+}
+.clickable:hover {
+    cursor: pointer;
+    background-color: rgb(208, 255, 0);
+}
+li.double {
+    border: 2px solid black;
+    border-radius: 5px;
+    text-align: center;
+}
+li.double > ul {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+ul {
+    list-style: none;
+}
+li.selected > ul {
+    display: grid;
+    grid-template-columns: 1fr 2fr 5fr;
+}
