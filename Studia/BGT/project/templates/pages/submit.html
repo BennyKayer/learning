@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="center">Partake in World Happiness Survey 2020</h1>
+        <form action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.country.label }}<br>
+                {{ form.country(class_="form-control") }}
+                {% for error in form.country.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                {{ form.overall_happiness.label }}<br>
+                {{ form.overall_happiness(class_="form-control") }}
+                {% for error in form.overall_happiness.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+            <div class="form-group" onchange="this.className = this.options[this.selectedIndex].className">
+                {{ form.economy.label }}<br>
+                {{ form.economy(class_="form-control") }}
+                {% for error in form.economy.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                {{ form.social.label }}<br>
+                {{ form.social(class_="form-control") }}
+                {% for error in form.social.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                {{ form.healthcare.label }}<br>
+                {{ form.healthcare(class_="form-control") }}
+                {% for error in form.healthcare.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                {{ form.freedom.label }}<br>
+                {{ form.freedom(class_="form-control") }}
+                {% for error in form.freedom.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                {{ form.trustworthiness.label }}<br>
+                {{ form.trustworthiness(class_="form-control") }}
+                {% for error in form.trustworthiness.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                {{ form.generosity.label }}<br>
+                {{ form.generosity(class_="form-control") }}
+                {% for error in form.generosity.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+            <div class="row justify-content-center">
+                {{ form.submit(class_="btn btn-primary") }}
+            </div>
+        </form>
+    </div>
+{% endblock %}

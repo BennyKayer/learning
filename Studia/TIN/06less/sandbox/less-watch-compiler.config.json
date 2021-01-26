@@ -1,0 +1,7 @@
+{
+    "allowedExtendions":[".less"],
+    "minified":false,
+    "sourceMap":"less",
+    "outputFolder":"css"
+
+}

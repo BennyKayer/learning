@@ -1,0 +1,91 @@
+Klasy - Illidan, Lich King, Deathwing (postacie z World of Warcraft)
+Wszyskie sieci uparcie klasyfikowały:
+Illidan'a jako Deathwing'a
+Deathwing'a jako Lich King'a
+Lich King'a jako Illidana
+
+strwierdziłem, że gdzieś w train.py jest pomyłka z przypisywanie label'i
+po licznych nieudanych próbach naprawy zdecydowałem się napisać wnioski w oparciu o
+przekonanie ,że problem leży tylko w wyświetlaniu a nie w samym uczeniu i zaprzestałem prób naprawy
+
+WNIOSKI:
+Zmieniejszenie batch size'a przy włączonej augumentacji znacząco wydłuża czas uczenia, niekoniecznie poprawiając wyniki
+Szukanie liczby epok - już przy 15 epokach sieci dają poprawne wyniki z penością na poziomie 86%
+Augumentacja poprawia wyniki w przypadku gdy pewność jest niska i pogarsza w przypadku pewności wysokiej
+Dla sieci FullyConnectedForIMG najistotniejszym czynnikiem poprawiającym wyniki jest hidden
+
+OPIS EXPERYMENTÓW:
+ARCHITEKTURA: Lenet5
+
+Augumentation: false
+Batch Size: 32
+Epochs: 1 - 15
+
+Stopniowy wzrost pewności od "strzelania" do 80%
+
+Augumentation: false
+Batch Size: 32
+Epochs: 25
+
+Niski czas uczenia, wyniki z 98 - 100% pewnością
+
+Augumentation: false
+Batch Size: 32
+Epochs: 25
+
+Jeszcze niższy czas uczenia, wyniki z 96 - 99% pewnością
+
+Augumentation: false
+Batch Size: 2
+Epochs: 25
+
+Nieco wyższy czas uczenia, wyniki z 98 - 100% pewnością
+
+Augumentation: true
+Batch Size: 2
+Epochs: 25
+
+Dużo wyższy czas uczenia, wyniki z 95 - 100% pewnością
+
+Augumentation: true
+Batch Size: 2
+Epochs: 50
+
+Dużo wyższy czas uczenia, wyniki z 95 - 100% pewnością
+
+Augumentation: true
+Batch Size: 2
+Epochs: 75
+
+Dużo wyższy czas uczenia, wyniki z 98 - 100% pewnością
+
+ARCHITEKTURA: FullyConnectedForIMG
+
+Augumentation: false
+Batch Size: 32
+Epochs: 25
+Hidden: 18
+
+Niski czas uczenia wyniki głównie w granicach 93 - 100% 2 wyniki z 76 i 69 %
+
+Augumentation: false
+Batch Size: 32
+Epochs: 25
+Hidden: 3
+
+Niski czas uczenia, po raz pierwszy pojawiły się wyniki błędne, wachania pewności od 53 do 100 %
+
+Augumentation: false
+Batch Size: 32
+Epochs: 25
+Hidden: 1
+
+Niski czas uczenia, dużo wyników błędnych sieć "strzelała" pewności rozdzielone niemal po równo (33% - 35%)
+
+Augumentation: true
+Batch Size: 32
+Epochs: 25
+Hidden: 1
+
+Poprawienie wyników względem poprzedniego przypadku "strzały" celniejsze (38 - 42%) pewności zazwyczaj dobra klasyfikacja
+

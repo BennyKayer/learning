@@ -1,0 +1,83 @@
+* {
+    box-sizing: border-box;
+    margin: 1vh 0 1vh 0;
+}
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: header;
+}
+nav a {
+    color:white;
+}
+nav ul, footer {
+    list-style: none;
+    width: 80vw;
+    height: 10vh;
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: auto;
+}
+nav li {
+    padding: 15px;
+}
+nav {
+    grid-area: nav;
+}
+#baner {
+    grid-area: baner;
+    margin: auto;
+}
+#rekrutacja {
+    grid-area: rekrutacja;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+#rekrutacja img {
+    border: 1px solid black;
+}
+#wi {
+    grid-area: wi;
+    grid-auto-flow: column;
+}
+#wsnm {
+    grid-area: wsnm;
+    grid-auto-flow: column;
+}
+#importnat {
+    grid-area: important;
+}
+#current {
+    grid-area: current;
+}
+#gallery {
+    display: flex;
+    justify-content: center;
+    grid-area: gallery;
+}
+footer {
+    color: white;
+    grid-area: footer;
+}
+p {
+    margin: 2% 0 2% 0;
+}
+#grid-container{
+    width: 80vw;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 20vw 20vw 20vw 20vw;
+    grid-template-rows: 100px 100px 300px 350px 300px 200px 100px;
+    grid-template-areas: 
+      "header header header header"
+      "nav nav nav nav"
+      "baner baner rekrutacja rekrutacja"
+      "wi wsnm wsnm important"
+      "wi wsnm wsnm current"
+      "gallery gallery gallery gallery"
+      "footer footer footer footer";
+}

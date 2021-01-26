@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{{ url_for("static", filename="style.css") }}" />
+  <title>Laboratorium 1</title>
+</head>
+<body>
+  <div class="table-wrapper">
+      <table class="fl-table">
+          <thead>
+              <tr>
+              {% for job in jobs %}
+                {% for key in job.keys() %}
+                    <th>{{ key }}</th>
+                {% endfor %}
+              {% endfor %}
+              </tr>
+          </thead>
+          <tbody>
+              {% for job in jobs %}
+                <tr>
+                {% for value in job.values() %}
+                    <td>{{ value }}</td>
+                {% endfor %}
+                </tr>
+              {% endfor %}
+          </tbody>
+      
+      </table>
+  </div>
+</body>
+</html>
