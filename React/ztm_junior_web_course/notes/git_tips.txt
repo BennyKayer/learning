@@ -1,0 +1,16 @@
+Desktop is deemed inferior to console
+git clone (http here)
+git status
+git add (filename here)
+git add . //ADD ALL AT ONCE
+git commit -m "message here"
+git push
+git pull
+
+BRANCHES
+git branch //LISTS BRANCHES
+git branch (Feature name here) //ADDS BRANCH WITH SPECIFIED NAME
+git checkout (Feature name here) //SWITCH BRANCH
+git merge master
+git checkout -b (branch name here) // CREATE AND SWITCH TO BRANCH
+git diff //SHOW DIFFERENCES
