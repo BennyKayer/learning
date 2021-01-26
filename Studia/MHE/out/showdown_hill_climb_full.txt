@@ -1,0 +1,5 @@
+metoda rozmiar czas_sredni wynik_sredni 
+hill_climb_full 16 0.027919998168945314 48.0 
+hill_climb_full 23 0.04683999061584473 48.68 
+hill_climb_full 42 0.020920000076293944 63.52 
+hill_climb_full 100 0.06148000717163086 248.52 

@@ -1,0 +1,16 @@
+table{
+    border: 2px black solid;
+    border-collapse: collapse;
+}
+tr:first-child{
+    border-bottom: 2px black solid;
+}
+td {
+    padding: 3px;
+}
+tr:nth-child(2n + 3){
+    background: lightskyblue;
+}
+td:nth-child(n + 3){
+    text-align: right;
+}

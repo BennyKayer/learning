@@ -1,0 +1,26 @@
+{
+  "name": "bookstore",
+  "version": "0.1.0",
+  "description": "Księgarnia Żurek",
+  "main": "serwer.js",
+  "scripts": {
+    "start": "node serwer.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.10.1",
+    "express": "^4.11.0",
+    "morgan": "^1.5.1",
+    "taffy": "^2.6.2",
+    "serve-favicon": "^2.2.0",
+    "ejs": "^2.3.1"
+  },
+  "devDependencies": {
+    "grunt": "0.4.5",
+    "grunt-contrib-rename": "^0.2.0",
+    "grunt-contrib-compress": "0.5.2"
+  },
+  "readme": "ERROR: No README data found!",
+  "repository": "none"
+}

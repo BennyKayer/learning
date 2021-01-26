@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+body {
+    padding-top: 100px;
+}
+thead {
+    position: fixed;
+    top: 0;
+}
+thead > tr > th {
+    background-color: lightgrey;
+}
+tbody > tr > th {
+    background-color:aliceblue;
+    width: 200px;
+    
+}
+thead th:first-child {
+    width: 200px;
+    background-color:aliceblue;
+}
+th, td {
+    padding: 5px 10px 5px 10px;
+}

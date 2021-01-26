@@ -1,0 +1,5 @@
+metoda rozmiar czas_sredni wynik_sredni 
+hill_climb_random 16 0.0018799972534179687 44.0 
+hill_climb_random 23 0.002759990692138672 50.04 
+hill_climb_random 42 0.0015199947357177734 52.6 
+hill_climb_random 100 0.0010400009155273437 107.4 
