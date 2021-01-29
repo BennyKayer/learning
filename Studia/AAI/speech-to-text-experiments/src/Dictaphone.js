@@ -35,16 +35,16 @@ const Dictaphone = () => {
 
     const commands = [
         {
-            command: "Select *",
+            command: "gender *",
             callback: (gender) => handleVoiceValueChange(gender),
         },
-        // {
-        //     command: "Select checkbox *",
-        //     callback: (command, spokenPhrase, similarityRatio) =>
-        //         handleVoiceChangeBox(command, spokenPhrase, similarityRatio),
-        //     isFuzzyMatch: true,
-        //     fuzzyMatchingThreshold: 0.2,
-        // },
+        {
+            command: "assign *",
+            callback: (command, spokenPhrase, similarityRatio) =>
+                handleVoiceChangeBox(command, spokenPhrase, similarityRatio),
+            isFuzzyMatch: true,
+            fuzzyMatchingThreshold: 0.2,
+        },
         {
             command: "Stop listening",
             callback: () => SpeechRecognition.abortListening(),
@@ -98,7 +98,7 @@ const Dictaphone = () => {
                 {listening ? <MicOffIcon /> : <MicIcon />}
             </Fab>
             <p>{transcript}</p>
-            {/* <FormControl component="fieldset">
+            <FormControl component="fieldset">
                 <FormLabel component="legend">Assign responsibility</FormLabel>
                 <FormGroup>
                     <FormControlLabel
@@ -132,8 +132,7 @@ const Dictaphone = () => {
                         label="Antoine Llorca"
                     />
                 </FormGroup>
-                <FormHelperText>Be careful</FormHelperText>
-            </FormControl> */}
+            </FormControl>
             <FormControl component="fieldset">
                 <FormLabel component="legend">Gender</FormLabel>
                 <RadioGroup
@@ -145,12 +144,6 @@ const Dictaphone = () => {
                     <FormControlLabel value="female" control={<Radio />} label="Female" />
                     <FormControlLabel value="male" control={<Radio />} label="Male" />
                     <FormControlLabel value="other" control={<Radio />} label="Other" />
-                    <FormControlLabel
-                        value="disabled"
-                        disabled
-                        control={<Radio />}
-                        label="(Disabled option)"
-                    />
                 </RadioGroup>
             </FormControl>
         </div>
