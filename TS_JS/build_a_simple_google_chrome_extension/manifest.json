@@ -1,0 +1,14 @@
+{
+  "manifest_version": 2,
+
+  "name": "Click It",
+  "description": "My first Chrome extension",
+  "version": "1.0",
+  "author": "Paweł Benkowski",
+  "browser_action": {
+    "default_icon": "gorilla.png",
+    "default_popup": "popup.html",
+    "default_title": "My custom Google extension"
+  },
+  "permissions": ["activeTab"]
+}
