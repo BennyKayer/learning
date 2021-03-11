@@ -1,6 +1,29 @@
 from django.contrib.auth.models import User
 from django.db import models
 from django.utils import timezone
+from django.urls import reverse
+
+STATUS_CHOICES = (("draft", "Draft"), ("published", "Published"))
+
+
+class PublishedManager(models.Manager):
+    """Istnieje domyślny manager objects, ale można tworzyć również własne,
+    ten tutaj pobierze wszystkie posty które mają status="published,
+    wywołujemy jako Post.published.all()
+
+    Args:
+        models ([type]): [description]
+
+    Returns:
+        [type]: [description]
+    """
+
+    def get_queryset(self):
+        return (
+            super(PublishedManager, self)
+            .get_queryset()
+            .filter(status=STATUS_CHOICES[1][0])
+        )
 
 
 class Post(models.Model):
@@ -20,7 +43,9 @@ class Post(models.Model):
     status: Post status - restricted by STATUS_CHOICES
     """
 
-    STATUS_CHOICES = (("draft", "Draft"), ("published", "Published"))
+    # Pierwszy manager zadeklarowany w modelu jest domyślnym
+    objects = models.Manager()
+    published = PublishedManager()
 
     title = models.CharField(max_length=250)
     slug = models.SlugField(max_length=250, unique_for_date="publish")
@@ -35,9 +60,28 @@ class Post(models.Model):
         max_length=10, choices=STATUS_CHOICES, default=STATUS_CHOICES[0][0]
     )
 
+    def get_absolute_url(self):
+        """Absolute(kanoniczny) url to preferowany URL dla zasobu.
+        Będzie używana do tworzenia łączy do konkretnych postów.
+
+        Returns:
+            [type]: [description]
+        """
+        return reverse(
+            "blog:post_detail",
+            args=[
+                self.publish.year,
+                self.publish.strftime("%m"),
+                self.publish.strftime("%d"),
+                self.slug,
+            ],
+        )
+
     class Meta:
         """Order by lastly published so that new posts are up top"""
 
+        # Jawne definiowanie default manager'a
+        default_manager_name = "objects"
         ordering = ("-publish",)
 
     def __str__(self):
