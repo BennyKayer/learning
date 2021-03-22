@@ -24,7 +24,6 @@ def sample_group(
     name: str = "Polacy w Austrii",
     link: str = "https://www.facebook.com/groups/POLACYwAUSTRII.grupa/",
     job: str = "Zbrojarz betoniarz",
-    country_tags: list = ["AT", "DE"],
 ):
     """Shortcut for creating sample groups
 
@@ -37,13 +36,18 @@ def sample_group(
         job (str, optional):
             Job title / titles or description.
             Defaults to "Zbrojarz betoniarz".
-        country_tags (list, optional):
-            Tags of countries in which the job takes place.
-            Defaults to ["AT", "DE"].
     """
-    return models.Group.objects.create(
-        name=name, link=link, job=job, country_tags=country_tags
-    )
+    return models.Group.objects.create(name=name, link=link, job=job)
+
+
+def sample_country(name: str = "Austria", code: str = "AT"):
+    """Shortcut for creating sample countries
+
+    Args:
+        name (str, optional): Full country's name. Defaults to "Austria".
+        code (str, optional): Country's code. Defaults to "AT".
+    """
+    return models.Country.objects.create(name=name, code=code)
 
 
 class ModelTests(TestCase):
@@ -65,19 +69,22 @@ class ModelTests(TestCase):
         name = "Polacy w Austrii"
         link = "https://www.facebook.com/groups/POLACYwAUSTRII.grupa/"
         job = "Zbrojarz betoniarz"
-        country_tags = ["AT", "DE"]
-        group = sample_group(
-            name=name, link=link, job=job, country_tags=country_tags
-        )
+        group = sample_group(name=name, link=link, job=job)
 
         self.assertEqual(group.name, name)
         self.assertEqual(group.link, link)
         self.assertEqual(group.job, job)
-        self.assertIn(group.country_tags, country_tags[0])
-        self.assertIn(group.country_tags, country_tags[1])
 
     def test_group_string_representation(self):
         """Test that group's name is it's string representation"""
         group = sample_group()
 
         self.assertEqual(str(group), group.name)
+
+    def test_country_str_representation(self):
+        """Test that country tag's string representation is it's name"""
+        name = "European Union"
+        code = "EU"
+        country = sample_country(name=name, code=code)
+
+        self.assertEqual(str(country), country.name)
