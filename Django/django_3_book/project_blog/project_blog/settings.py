@@ -12,6 +12,22 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
+# Aby skonfigurować zezwnętrzny email trzeba podać:
+# EMAIL_HOST - server SMTP default localhost
+# EMAIL_PORT - port SMTP default 25
+# EMAIL_HOST_USER - nazwa uzytkownika SMTP
+# EMAIL_HOST_PASSWORD
+# EMAIL_USE_TLS - czy używać bezpiecznego połączenia TLS
+# EMAIL_USE_SSL - czy niejawnie używać SSL
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = "bennykayer@gmail.com"
+EMAIL_HOST_PASSWORD = "51184C6a"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+# Konfiguracja django aby wyświetlał mail'e w konsoli
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 

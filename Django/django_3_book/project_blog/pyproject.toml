@@ -49,8 +49,8 @@ inline-quotes = "double"
 
 [tool.flakehell.plugins]
 pyflakes = ["+*"]
-pycodestyle = ["+*"]
-pylint = ["+*"]
+pycodestyle = ["+*", "-E501"]
+pylint = ["+*", "-C0301"]
 
 [build-system]
 requires = ["poetry>=0.12"]
