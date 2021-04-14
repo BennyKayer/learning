@@ -87,3 +87,31 @@ class Post(models.Model):
     def __str__(self):
         """Title as string representation"""
         return self.title
+
+
+class Comment(models.Model):
+    """Model komentarza pod postem"""
+
+    name = models.CharField(max_length=80)
+    email = models.EmailField()
+    body = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    active = models.BooleanField(default=True)
+
+    # Komentarz dla konkretnego posta ale post może mieć wiele komentarzy
+    # pozwala na wywołanie comment.post()
+    # related_name używamy aby nazwać ten związek między 2 obiektami
+    # możemy dzięki temu wywołać post.comments.all()
+    # bez tego byłoby comment_set
+    post = models.ForeignKey(
+        "Post", on_delete=models.CASCADE, related_name="comments"
+    )
+
+    class Meta:
+        """Comments meta"""
+
+        ordering = ("created",)
+
+    def __str__(self):
+        return f"Komentarz dodany przez {self.name} dla posta {self.post}"

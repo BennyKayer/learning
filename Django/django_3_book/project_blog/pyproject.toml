@@ -50,7 +50,7 @@ inline-quotes = "double"
 [tool.flakehell.plugins]
 pyflakes = ["+*"]
 pycodestyle = ["+*", "-E501"]
-pylint = ["+*", "-C0301"]
+pylint = ["+*", "-C0301", "-R0903"]
 
 [build-system]
 requires = ["poetry>=0.12"]
