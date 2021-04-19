@@ -6,9 +6,9 @@ from django.core.mail import send_mail
 from django.shortcuts import get_object_or_404, render
 from django.views.generic import ListView
 
-from blog.models import Post
+from blog.models import Post, Comment
 
-from .forms import EmailPostForm
+from blog.forms import EmailPostForm, CommentForm
 
 # Function way
 # def post_list(request):
@@ -39,6 +39,19 @@ class PostListView(ListView):
 
 
 def post_detail(request, year, month, day, post):
+    """Jeżeli wywołany jest POST przetwarzamy wysłany formularz
+    w przypadku GET'a zwracamy formularz do wypełnienia
+
+    Args:
+        request ([type]): [description]
+        year ([type]): [description]
+        month ([type]): [description]
+        day ([type]): [description]
+        post ([type]): [description]
+
+    Returns:
+        [type]: [description]
+    """
     post = get_object_or_404(
         Post,
         slug=post,
@@ -47,7 +60,27 @@ def post_detail(request, year, month, day, post):
         publish__month=month,
         publish__day=day,
     )
-    return render(request, "blog/post/detail.html", {"post": post})
+
+    # wykorzystanie menedżera obiektów powiązanych comments
+    comments = post.comments.filter(active=True)
+
+    if request.method == "POST":
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            # Powoduje że powstaje egzemplarz modelu ale nie trafia do bazy
+            # .save jest dostępny dla ModelForm ale nie dla Form
+            new_comment = comment_form.save(commit=False)
+            # dodajemy posta i wtedy zapisujemy
+            new_comment.post = post
+            new_comment.save()
+    else:
+        comment_form = CommentForm()
+
+    return render(
+        request,
+        "blog/post/detail.html",
+        {"post": post, "comments": comments, "comment_form": comment_form},
+    )
 
 
 def post_share(request, post_id):
