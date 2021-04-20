@@ -1,0 +1,25 @@
+{
+    "name": "Getting past cors",
+    "description": "",
+    "version": "0.1.0",
+    "manifest_version": 2,
+    "icons": {
+        "16": "./obj-16x16.png",
+        "32": "./obj-32x32.png",
+        "150": "./obj-150x150.png",
+        "192": "./obj-192x192.png"
+    },
+    "background": {
+        "scripts": ["./background.js", "jquery-3.6.0.js"]
+    },
+    "options_page": "./options.html",
+    "browser_action": {
+        "default_popup": "popup.html"
+    },
+    "permissions": [
+        "tabs",
+        "https://www.google.com/",
+        "https://www.yahoo.com/",
+        "https://*/*"
+    ]
+}
