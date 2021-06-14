@@ -37,7 +37,7 @@ exclude = ['.venv']
 [tool.flakehell.plugins]
 pyflakes = ['+*']
 pycodestyle = ['+*', '-E203']
-pylint = ["+*"]
+pylint = ["+*", '-C0330']
 
 [build-system]
 requires = ["poetry>=0.12"]

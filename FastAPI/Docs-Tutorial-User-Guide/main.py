@@ -1,39 +1,95 @@
 """Entry point for every FastAPI application
 can be name whatever
 """
-from typing import List, Optional
-from fastapi import FastAPI
+# Builtins
 from enum import Enum
+from typing import List, Optional
+
+# Third party
+from fastapi import FastAPI
+from pydantic import BaseModel
+
+
+class Item(BaseModel):
+    name: str
+    description: Optional[str]
+    price: float
+    tax: Optional[float]
+
 
 app = FastAPI()
 
-###############################################################################
-# https://fastapi.tiangolo.com/tutorial/query-params/#required-query-parameters
-# If you don't want to add a specific value but just make it optional, set the default as None.
-# But when you want to make a query parameter required, you can just not declare any default value:
+
+@app.put("/items/{item_id}")
+async def create_item_body_path_query_params(
+    item_id: int, item: Item, question: Optional[str] = None
+):
+    """Demonstrates use of all request body, path and query parameters
+    If the parameter is also declared in the path,
+    it will be used as a path parameter.
+    If the parameter is of a singular type (like int, float, str, bool, etc)
+    it will be interpreted as a query parameter.
+    If the parameter is declared to be of the type of a Pydantic model,
+    it will be interpreted as a request body.
+
+    Args:
+        item_id (int): Query parameter
+        item (Item): Request body
+        question (Optional[str], optional): Path parameter. Defaults to None.
+
+    Returns:
+        [type]: [description]
+    """
+    result = {"item_id": item_id, **item.dict()}
+    if question:
+        result.update({"question": question})
+    return result
+
+
+@app.post("/items/{item_id}")
+async def create_item_req_path(item_id: int, item: Item):
+    """Version of create item
+    that demonstarates that both request body and path params
+    can be used at the same time"""
+    return {"item_id": item_id, **item.dict()}
+
+
+@app.post("/items/")
+async def create_item(item: Item):
+    """Demonstartes an endpoint with reqeust body"""
+    item_dict = item.dict()
+    if item.tax:
+        price_with_tax = item.price + item.tax
+        item_dict.update({"price_with_tax": price_with_tax})
+    return item_dict
 
 
 @app.get("/items/required/{item_id}")
 async def read_user_item(item_id: str, needy: str):
+    """
+    https://fastapi.tiangolo.com/tutorial/query-params/#required-query-parameters
+    If you don't want to add a specific value but just make it optional,
+    set the default as None.
+    But when you want to make a query parameter required,
+    you can just not declare any default value:
+    """
     item = {"item_id": item_id, "needy": needy}
     return item
 
 
-# https://fastapi.tiangolo.com/tutorial/query-params/#required-query-parameters
-###############################################################################
-
-
-########################################################################################
-# https://fastapi.tiangolo.com/tutorial/query-params/#multiple-path-and-query-parameters
-
-
 @app.get("users/{user_id}/items/{item_id}")
 async def read_user_item_multi_query(
-    user_id: int, item_id: str, q: Optional[str] = None, short: bool = False
+    user_id: int,
+    item_id: str,
+    question: Optional[str] = None,
+    short: bool = False,
 ):
+    """Demonstrates the mixture of path and query parameters
+    https://fastapi.tiangolo.com/tutorial/query-params/#multiple-path-and-query-parameters
+    """
     item = {"item_id": item_id, "owner_id": user_id}
-    if q:
-        item.update({"q": q})
+    if question:
+        item.update({"q": question})
     if not short:
         item.update(
             {
@@ -41,14 +97,6 @@ async def read_user_item_multi_query(
             }
         )
     return item
-
-
-# https://fastapi.tiangolo.com/tutorial/query-params/#multiple-path-and-query-parameters
-########################################################################################
-
-
-#########################################################################
-# https://fastapi.tiangolo.com/tutorial/query-params/#optional-parameters
 
 
 @app.get("/items_optional/{item_id}")
