@@ -8,7 +8,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel  # noqa E0601
 
 
-class Item(BaseModel):
+class Item(BaseModel):  # noqa C0115 R0903
     name: str
     description: Optional[str]
     price: float

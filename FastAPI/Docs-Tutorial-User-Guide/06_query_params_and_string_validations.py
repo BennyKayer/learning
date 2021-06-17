@@ -40,7 +40,7 @@ async def read_filename_list(
         title="Filenames",
         alias="file-names",
     ),
-    file: Optional[str] = Query("cat.png", deprecated=True),
+    file: Optional[str] = Query("cat.png", deprecated=True),  # noqa W0613
 ):
     """How to pass a list of filenames
     example modified for utilization of previous experiences"""

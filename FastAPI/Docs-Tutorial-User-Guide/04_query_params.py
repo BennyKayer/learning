@@ -59,9 +59,7 @@ async def read_user_item_multi_query(
         item.update({"q": question})
     if not short:
         item.update(
-            {
-                "description": "This is an amazing item that has a long description"
-            }
+            {"description": "This is an amazing item that has a long desc"}
         )
     return item
 
