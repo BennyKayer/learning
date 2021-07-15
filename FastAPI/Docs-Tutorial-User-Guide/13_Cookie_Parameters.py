@@ -1,7 +1,10 @@
 """https://fastapi.tiangolo.com/tutorial/cookie-params/
 """
+# Builtins
 from typing import Optional
-from fastapi import FastAPI, Cookie
+
+# Third party
+from fastapi import Cookie, FastAPI
 
 app = FastAPI()
 
