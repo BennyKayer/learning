@@ -2,7 +2,10 @@
 How to pass a list of query params
 validate query params nicely with Query
 """
+# Builtins
 from typing import List, Optional
+
+# Third party
 from fastapi import FastAPI, Query
 
 app = FastAPI()

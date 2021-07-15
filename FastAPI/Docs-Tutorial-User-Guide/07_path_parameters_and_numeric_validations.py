@@ -1,7 +1,10 @@
 """https://fastapi.tiangolo.com/tutorial/path-params-numeric-validations/
     Query and Path both inherit from Param class so they have same params
 """
+# Builtins
 from typing import Optional
+
+# Third party
 from fastapi import FastAPI, Path, Query
 
 app = FastAPI()

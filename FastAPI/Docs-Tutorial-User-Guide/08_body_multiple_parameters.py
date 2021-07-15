@@ -1,9 +1,11 @@
 """https://fastapi.tiangolo.com/tutorial/body-multiple-params/
 Showing mixing of Query, Path and Body params with all the previous validations
 """
+# Builtins
 from typing import Optional
 
-from fastapi import FastAPI, Path, Body
+# Third party
+from fastapi import Body, FastAPI, Path
 from pydantic import BaseModel  # noqa E0611
 
 app = FastAPI()

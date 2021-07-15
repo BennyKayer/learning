@@ -1,8 +1,10 @@
 """Tells about pydantic validation, path params, enums etc.
 https://fastapi.tiangolo.com/tutorial/path-params/
 """
+# Builtins
 from enum import Enum
 
+# Third party
 from fastapi import FastAPI
 
 app = FastAPI()

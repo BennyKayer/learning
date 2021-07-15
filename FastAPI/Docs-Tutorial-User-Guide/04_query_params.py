@@ -1,7 +1,10 @@
 """Section for query parameters
 https://fastapi.tiangolo.com/tutorial/query-params/
 """
+# Builtins
 from typing import Optional
+
+# Third party
 from fastapi import FastAPI
 
 app = FastAPI()

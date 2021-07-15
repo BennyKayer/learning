@@ -3,6 +3,7 @@ page shows generated docs in both swagger and redoc,
 as well as other methods POST, PUT, PATCH, OPTIONS etc.
 https://fastapi.tiangolo.com/tutorial/first-steps/#first-steps
 """
+# Third party
 from fastapi import FastAPI
 
 app = FastAPI()

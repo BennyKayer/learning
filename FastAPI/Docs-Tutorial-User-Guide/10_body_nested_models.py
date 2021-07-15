@@ -1,6 +1,9 @@
 """https://fastapi.tiangolo.com/tutorial/body-nested-models/
 """
-from typing import Optional, Set, List, Dict
+# Builtins
+from typing import Dict, List, Optional, Set
+
+# Third party
 from fastapi import FastAPI
 from pydantic import BaseModel, HttpUrl  # noqa E0611
 

@@ -1,9 +1,11 @@
 """https://fastapi.tiangolo.com/tutorial/body-fields/
 """
 
+# Builtins
 from typing import Optional
 
-from fastapi import FastAPI, Body
+# Third party
+from fastapi import Body, FastAPI
 from pydantic import BaseModel, Field  # noqa E0611
 
 app = FastAPI()
