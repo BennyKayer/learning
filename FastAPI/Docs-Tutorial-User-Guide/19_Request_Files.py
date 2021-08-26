@@ -2,8 +2,11 @@
 What Upload File has
 https://fastapi.tiangolo.com/tutorial/request-files/#uploadfile
 """
+# Builtins
 from typing import List
-from fastapi import FastAPI, UploadFile, File
+
+# Third party
+from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import HTMLResponse
 
 app = FastAPI()

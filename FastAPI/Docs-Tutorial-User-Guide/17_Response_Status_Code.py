@@ -1,6 +1,7 @@
 """https://fastapi.tiangolo.com/tutorial/response-status-code/
 """
 
+# Third party
 from fastapi import FastAPI, status
 
 app = FastAPI()
