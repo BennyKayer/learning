@@ -81,11 +81,17 @@ async def update_item_many_examples(
             "converted": {
                 "summary": "An example with converted data",
                 "description": "FastAPI can convert price `strings` to actual `numbers` automatically",  # noqa E501
-                "value": {"name": "Bar", "price": "35.4",},
+                "value": {
+                    "name": "Bar",
+                    "price": "35.4",
+                },
             },
             "invalid": {
                 "summary": "Invalid data is rejected with an error",
-                "value": {"name": "Baz", "price": "thirty five point four",},
+                "value": {
+                    "name": "Baz",
+                    "price": "thirty five point four",
+                },
             },
         },
     )
