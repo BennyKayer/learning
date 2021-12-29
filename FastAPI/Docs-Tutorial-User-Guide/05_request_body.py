@@ -5,10 +5,10 @@ from typing import Optional
 
 # Third party
 from fastapi import FastAPI
-from pydantic import BaseModel  # noqa E0601
+from pydantic import BaseModel
 
 
-class Item(BaseModel):  # noqa C0115 R0903
+class Item(BaseModel):
     name: str
     description: Optional[str]
     price: float
@@ -38,7 +38,7 @@ async def create_item_body_path_query_params(
     Returns:
         [type]: [description]
     """
-    result = {"item_id": item_id, **item.dict()}
+    result = {"item_id": f"{item_id}", **item.dict()}
     if question:
         result.update({"question": question})
     return result

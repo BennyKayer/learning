@@ -5,7 +5,7 @@ from typing import Dict, List, Optional, Set
 
 # Third party
 from fastapi import FastAPI
-from pydantic import BaseModel, HttpUrl  # noqa E0611
+from pydantic import BaseModel, HttpUrl
 
 app = FastAPI()
 

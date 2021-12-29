@@ -9,7 +9,7 @@ from typing import Optional
 # Third party
 from fastapi import FastAPI
 from fastapi.param_functions import Body
-from pydantic import BaseModel, Field  # noqa E0611
+from pydantic import BaseModel, Field
 
 app = FastAPI()
 
@@ -80,7 +80,7 @@ async def update_item_many_examples(
             },
             "converted": {
                 "summary": "An example with converted data",
-                "description": "FastAPI can convert price `strings` to actual `numbers` automatically",  # noqa E501
+                "description": "FastAPI can convert price `strings` to actual `numbers` automatically",
                 "value": {
                     "name": "Bar",
                     "price": "35.4",

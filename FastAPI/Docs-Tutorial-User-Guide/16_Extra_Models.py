@@ -6,7 +6,7 @@ from typing import List, Optional, Union
 
 # Third party
 from fastapi import FastAPI
-from pydantic import BaseModel, EmailStr  # noqa E0611
+from pydantic import BaseModel, EmailStr
 
 app = FastAPI()
 

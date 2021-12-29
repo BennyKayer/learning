@@ -6,7 +6,7 @@ from typing import Optional
 
 # Third party
 from fastapi import Body, FastAPI
-from pydantic import BaseModel, Field  # noqa E0611
+from pydantic import BaseModel, Field
 
 app = FastAPI()
 
